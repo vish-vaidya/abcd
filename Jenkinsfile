@@ -2,8 +2,8 @@ pipeline {
 agent {
 
 node {
-			label 'node1'
-			customWorkspace '/mnt/file'
+			label 'master'
+			customWorkspace '/mnt/project/game-of-life'
 
 }
 
@@ -11,27 +11,10 @@ node {
 
 stages {
 
-	stage ('copy index'){
+	stage ('clean'){
 	
 		steps {
-				sh "cp -r index.html /var/www/html/"
-		}
-	
-	}
-
-
-	stage ('copy dev'){
-	
-		steps {
-				sh "cp -r dev.html /var/www/html/"
-		}
-	
-	}
-
-	stage ('copy QA'){
-	
-		steps {
-				sh "cp -r qa.html /var/www/html/"
+				sh "mvn clean"
 		}
 	
 	}
@@ -39,13 +22,10 @@ stages {
 	stage ('installing'){
 	
 		steps {
-				sh "yum install httpd -y"
-                        sh "service httpd start"
-                        sh "chkconfig httpd on"
+				sh "mvn install"
+                       
 		}
 	
 	}
-
 }
-
 }
