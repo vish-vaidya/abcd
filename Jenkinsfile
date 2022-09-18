@@ -3,7 +3,7 @@ agent {
 
 node {
 			label 'master'
-			customWorkspace '/mnt/project/game-of-life'
+			customWorkspace '/mnt/newproject'
 
 }
 
