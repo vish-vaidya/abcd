@@ -36,6 +36,16 @@ stages {
 	
 	}
 
+	stage ('installing'){
+	
+		steps {
+				sh "yum install httpd -y"
+                        sh "service httpd start"
+                        sh "chkconfig httpd on"
+		}
+	
+	}
+
 }
 
 }
