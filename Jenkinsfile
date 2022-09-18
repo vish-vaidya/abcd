@@ -3,7 +3,7 @@ agent {
 
 node {
 			label 'master'
-			customWorkspace '/mnt/newproject'
+			customWorkspace '/mnt/project'
 
 }
 
@@ -11,10 +11,10 @@ node {
 
 stages {
 
-	stage ('clean'){
+	stage ('compile'){
 	
 		steps {
-				sh "mvn clean"
+				sh "mvn compile"
 		}
 	
 	}
